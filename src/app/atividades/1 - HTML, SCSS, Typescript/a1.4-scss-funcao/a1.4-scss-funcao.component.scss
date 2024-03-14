@@ -1,0 +1,26 @@
+@function get-dark-bg($nivel) {
+  @return rgba(0, 0, 0, $nivel/10);
+}
+
+.wrapper {
+  display: flex;
+  border: 1px solid blue;
+  background-color: transparent;
+  .item {
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+  }
+  .item1 {
+    background-color: get-dark-bg(1);
+  }
+  .item2 {
+    background-color: get-dark-bg(2);
+  }
+  .item3 {
+    background: get-dark-bg(3);
+  }
+  .item4 {
+    background-color: get-dark-bg(4);
+  }
+}

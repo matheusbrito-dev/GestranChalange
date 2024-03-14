@@ -1,0 +1,86 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  style="display: flex; flex-direction: column; gap: 20px"
+>
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Digite algo"
+      formControlName="nome"
+    />
+    <mat-error *ngIf="form.get('nome')?.hasError('required')"
+      >Nome é obrigatório</mat-error
+    >
+    <mat-error *ngIf="form.get('nome')?.hasError('maxlength')"
+      >Nome não pode exceder 30 caracteres</mat-error
+    >
+    <mat-error *ngIf="form.get('nome')?.hasError('minlength')"
+      >Nome não pode ser menor que 3 caracteres</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Digite algo"
+      formControlName="email"
+    />
+    <mat-error *ngIf="form.get('email')?.hasError('required')"
+      >Email é obrigatório</mat-error
+    >
+    <mat-error *ngIf="form.get('email')?.hasError('email')"
+      >Email invalido</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Senha</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Digite algo"
+      formControlName="senha"
+    />
+    <mat-error *ngIf="form.get('senha')?.hasError('required')"
+      >Senha é obrigatório</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>CEP</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Digite algo"
+      formControlName="cep"
+    />
+    <mat-error *ngIf="form.get('cep')?.hasError('required')"
+      >Cep é obrigatório</mat-error
+    >
+    <mat-error *ngIf="form.get('cep')?.hasError('maxlength')"
+      >Cep deve conter 8 caracteres</mat-error
+    >
+    <mat-error *ngIf="form.get('cep')?.hasError('minlength')"
+      >Cep deve conter 8 caracteres</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Logradouro</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Digite algo"
+      formControlName="logradouro"
+      readonly
+    />
+    <mat-error *ngIf="form.get('logradouro')?.hasError('required')"
+      >Logradouro é obrigatório</mat-error
+    >
+  </mat-form-field>
+  <button mat-raised-button type="submit">Salvar</button>
+  <button mat-raised-button type="button" matDialogClose>Cancelar</button>
+</form>
